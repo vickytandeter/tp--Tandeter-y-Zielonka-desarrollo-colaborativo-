@@ -8,51 +8,46 @@
 
 <body>
 
-<header class="navbar">
+    <header class="navbar">
+        <h2>Ideas Último Año</h2>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Propuestas</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
 
-<h2>Ideas Último Año</h2>
+<main>
+    <section class="hero">
 
-<nav>
-<a href="#">Inicio</a>
-<a href="#">Propuestas</a>
-<a href="#">Contacto</a>
-</nav>
+        <h1>Propuestas para el último año</h1>
+        <p>Votá ideas para hacer este último año inolvidable.</p>
 
-</header>
+        <button id="votar">Apoyar esta idea</button>
 
+        <p id="contador">Votos: 0</p>
 
-<section class="hero">
+    </section>
 
-<h1>Propuestas para el último año</h1>
-<p>Votá ideas para hacer este último año inolvidable.</p>
+    <section class="propuesta">
 
-<button id="votar">Apoyar esta idea</button>
+        <h2>Enviar una propuesta</h2>
 
-<p id="contador">Votos: 0</p>
+        <form id="formPropuesta">
 
-</section>
+            <label>Tu nombre</label>
+            <input type="text" id="nombre">
 
+            <label>Tu propuesta</label>
+            <input type="text" id="idea">
 
-<section class="propuesta">
+            <button>Enviar propuesta</button>
 
-<h2>Enviar una propuesta</h2>
+            <p id="mensaje"></p>
 
-<form id="formPropuesta">
-
-<label>Tu nombre</label>
-<input type="text" id="nombre">
-
-<label>Tu propuesta</label>
-<input type="text" id="idea">
-
-<button>Enviar propuesta</button>
-
-<p id="mensaje"></p>
-
-</form>
-
-</section>
-
+        </form>
+    </section>
+</main>
 
 <footer>
 
