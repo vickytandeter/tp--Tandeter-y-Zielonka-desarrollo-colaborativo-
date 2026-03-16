@@ -4,7 +4,8 @@ margin:0;
 background:#f4f4f4;
 }
 
-.navbar{
+/* header */
+header{
 display:flex;
 justify-content:space-between;
 background:#003366;
@@ -12,7 +13,7 @@ color:white;
 padding:15px;
 }
 
-.navbar nav{
+header nav{
 display:flex;
 align-items:center;
 margin-right: 200px;
@@ -26,6 +27,13 @@ background-color: white;
 border-radius: 8px;
 font-size: 100%;
 padding: 4%;
+}
+
+.card{
+    margin: auto;
+}
+.carousel-item{
+    text-align:center;
 }
 
 .hero{

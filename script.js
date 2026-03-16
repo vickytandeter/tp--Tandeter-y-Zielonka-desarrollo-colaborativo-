@@ -28,3 +28,15 @@ document.getElementById("mensaje").innerText = "Completa todos los campos"
 }
 
 })
+
+let propuestas = []
+
+function guardarPropuestas(propuesta)
+{
+    propuestas.Push(propuesta)
+}
+
+function listaPropuestas()
+{
+    return propuestas;
+}
