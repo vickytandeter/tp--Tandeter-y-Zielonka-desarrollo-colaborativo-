@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Ideas Último Año</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Ideas Último Año</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-
 <body>
-
     <header class="navbar">
         <h2>Ideas Último Año</h2>
         <nav>
@@ -16,43 +15,30 @@
             <a href="#">Contacto</a>
         </nav>
     </header>
-
 <main>
-    <section class="hero">
 
+    <section class="hero">
         <h1>Propuestas para el último año</h1>
         <p>Votá ideas para hacer este último año inolvidable.</p>
-
         <button id="votar">Apoyar esta idea</button>
-
         <p id="contador">Votos: 0</p>
-
     </section>
 
     <section class="propuesta">
-
         <h2>Enviar una propuesta</h2>
-
         <form id="formPropuesta">
-
             <label>Tu nombre</label>
             <input type="text" id="nombre">
-
             <label>Tu propuesta</label>
             <input type="text" id="idea">
-
             <button>Enviar propuesta</button>
-
             <p id="mensaje"></p>
-
         </form>
     </section>
 </main>
 
 <footer>
-
-<p>Promoción 2026</p>
-
+    <p>Promoción 2026</p>
 </footer>
 
 <script src="script.js"></script>

@@ -12,6 +12,12 @@ color:white;
 padding:15px;
 }
 
+.navbar nav{
+display:flex;
+align-items:center;
+margin-right: 200px;
+}
+
 nav a{
 color:#003366;
 margin-left:15px;
