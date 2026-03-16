@@ -31,11 +31,16 @@ padding: 4%;
 
 .card{
     margin: auto;
+    width: 1000%;
 }
 .carousel-item{
     text-align:center;
 }
 
+.card-body
+{
+
+}
 .hero{
 text-align:center;
 padding:80px;
