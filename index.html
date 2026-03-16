@@ -15,31 +15,76 @@
             <a href="#">Contacto</a>
         </nav>
     </header>
-<main>
-
-    <section class="hero">
+    <main>
         <h1>Propuestas para el último año</h1>
-        <p>Votá ideas para hacer este último año inolvidable.</p>
-        <button id="votar">Apoyar esta idea</button>
-        <p id="contador">Votos: 0</p>
-    </section>
 
-    <section class="propuesta">
-        <h2>Enviar una propuesta</h2>
-        <form id="formPropuesta">
-            <label>Tu nombre</label>
-            <input type="text" id="nombre">
-            <label>Tu propuesta</label>
-            <input type="text" id="idea">
-            <button>Enviar propuesta</button>
-            <p id="mensaje"></p>
-        </form>
-    </section>
-</main>
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
 
-<footer>
-    <p>Promoción 2026</p>
-</footer>
+        <section class="hero">
+            
+            <p>Votá ideas para hacer este último año inolvidable.</p>
+            <button id="ver">Ver propuestas</button>
+            <button id="votar">Apoyar una idea</button>
+            <p id="contador">Votos: 0</p>
+        </section>
+
+        <section class="propuesta">
+            <h2>Enviar una propuesta</h2>
+            <form id="formPropuesta">
+                <label>Tu nombre</label>
+                <input type="text" id="nombre">
+                <label>Tu propuesta</label>
+                <input type="text" id="idea">
+                <button>Enviar propuesta</button>
+                <p id="mensaje"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Promoción 2026</p>
+    </footer>
 
 <script src="script.js"></script>
 
