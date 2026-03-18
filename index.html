@@ -19,9 +19,11 @@
         <h1>Propuestas para el último año</h1>
 
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
+            <div class="carousel-inner" id="carouselInner">
+            </div>
+            <!-- <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card mx-auto" style="width: 24rem;">
                         <img src="img/img.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Propuesta 1</h5>
@@ -31,7 +33,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card mx-auto" style="width: 24rem;">
                         <img src="img/img.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Propuesta 2</h5>
@@ -41,7 +43,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card mx-auto" style="width: 24rem;">
                         <img src="img/img.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Propuesta 3</h5>
@@ -50,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -61,15 +63,6 @@
             </button>
         </div>
 
-        <section class="hero">
-
-            <p>Votá ideas para hacer este último año inolvidable.</p>
-            <p id = "propuestas" value = "propuestas"></p>
-            <button id="votar">Apoyar una idea</button>
-            <p id="contador">Votos: 0</p>
-            
-        </section>
-
         <section class="propuesta">
             <h2>Enviar una propuesta</h2>
             <form id="formPropuesta">
@@ -79,7 +72,10 @@
                 <label>Tu propuesta</label>
                 <input type="text" id="idea">
                 <br>
-                <button>Enviar propuesta</button>
+                <label>Imagen</label>
+                <input type="file" id="imagen" accept="image/*">
+                <br>
+                <button type="submit" class="btn btn-success mt-2">Enviar propuesta</button>
                 <p id="mensaje"></p>
             </form>
         </section>
