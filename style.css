@@ -1,14 +1,15 @@
 body{
 font-family: Arial, sans-serif;
 margin:0;
-background:#f4f4f4;
+background:#eef2f7;
 }
 
 /* header */
 header{
 display:flex;
 justify-content:space-between;
-background:#003366;
+align-items:center; 
+background:#2c3e50; 
 color:white;
 padding:15px;
 }
@@ -29,24 +30,37 @@ font-size: 100%;
 padding: 4%;
 }
 
+nav a:hover{
+background:#3498db;
+color:white;
+}
+
+.propuestas{
+background-color: #dfe6e9; 
+padding:15px; 
+border-radius:8px; 
+}
 .card{
-    margin: auto;
-    width: 1000%;
+margin: auto;
+border-radius: 8px;
+background:white;
+width: 85%;
+box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
 }
 .carousel-item{
     text-align:center;
 }
 
-.card-body
-{
-
+.card-body{
+    padding:15px;
 }
 .hero{
 text-align:center;
-padding:80px;
-background:linear-gradient(135deg,#2193b0,#6dd5ed);
+padding:70px;
+background:#3498db; 
 color:white;
 }
+
 
 button{
 background:#ff9800;
@@ -66,17 +80,22 @@ margin:auto;
 margin-top:40px;
 display:flex;
 flex-direction:column;
+padding:15px; 
+background:white; 
+border-radius:8px; 
 }
 
 input{
 padding:10px;
 margin-bottom:10px;
+border-radius:5px; 
+border:1px solid #ccc; 
 }
 
 footer{
 text-align:center;
 margin-top:50px;
 padding:20px;
-background:#003366;
+background:#2c3e50;
 color:white;
 }
