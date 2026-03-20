@@ -1,44 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    let votos = 0;
-
-    const boton = document.getElementById("votar");
-    const textoVotos = document.getElementById("contador");
-
     const form = document.getElementById("formPropuesta");
     const carouselInner = document.getElementById("carouselInner");
 
-    let propuestas = [];
-
     mostrarMensajeVacio();
-
-    boton.addEventListener("click", function () {
-        votos++;
-        textoVotos.innerText = "Votos: " + votos;
-    });
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
         let nombre = document.getElementById("nombre").value.trim();
         let idea = document.getElementById("idea").value.trim();
-        let archivo = document.getElementById("imagen").files[0];
+        let archivoInput = document.getElementById("imagen");
+        let archivo = archivoInput ? archivoInput.files[0] : null;
+        let mensaje = document.getElementById("mensaje");
 
+        console.log("nombre:", nombre);
+        console.log("idea:", idea);
+        console.log("archivo:", archivo);
 
         if (nombre === "" || idea === "" || !archivo) {
-            document.getElementById("mensaje").innerText = "Completa todos los campos";
-            return;
-        }
-
-        if (!archivo) {
-            let nuevaPropuesta = {
-                nombre: nombre,
-                idea: idea,
-                imagen: "img/img.jpg"
-            };
-
-            propuestas.push(nuevaPropuesta);
-            agregarCard(nuevaPropuesta);
+            mensaje.innerText = "Completa todos los campos";
+            mensaje.style.color = "red";
             return;
         }
 
@@ -51,18 +33,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 imagen: reader.result
             };
 
-            propuestas.push(nuevaPropuesta);
             agregarCard(nuevaPropuesta);
+
+            mensaje.innerText = "Propuesta enviada correctamente";
+            mensaje.style.color = "green";
+
+            setTimeout(() => {
+                mensaje.innerText = "";
+            }, 3000);
+            
+            form.reset();
         };
 
         reader.readAsDataURL(archivo);
     });
 
     function agregarCard(propuesta) {
-
-        if (!hayPropuestas) {
+        
+        let mensajeVacio = carouselInner.querySelector(".mensaje-vacio");
+        if (mensajeVacio) {
             carouselInner.innerHTML = "";
-            hayPropuestas = true;
         }
 
         let item = document.createElement("div");
@@ -74,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         item.innerHTML = `
             <div class="card mx-auto" style="width: 24rem;">
-                <img src="${propuesta.imagen}" class="card-img-top">
+                <img src="${propuesta.imagen}" class="card-img-top" alt="imagen propuesta">
                 <div class="card-body">
                     <h5 class="card-title">${propuesta.idea}</h5>
                     <p class="card-text">Propuesta de ${propuesta.nombre}</p>
@@ -87,11 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function mostrarMensajeVacio() {
-        hayPropuestas = false;
-
         carouselInner.innerHTML = `
             <div class="carousel-item active">
-                <div class="d-flex justify-content-center align-items-center" style="height: 350px;">
+                <div class="mensaje-vacio d-flex justify-content-center align-items-center" style="height: 350px;">
                     <div class="text-center">
                         <h5>Todavía no hay propuestas</h5>
                         <p>¡Sé el primero en enviar una! 🎉</p>
@@ -102,3 +90,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
