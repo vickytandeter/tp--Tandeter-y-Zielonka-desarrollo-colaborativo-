@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
             let nuevaPropuesta = {
                 nombre: nombre,
                 idea: idea,
-                imagen: reader.result
+                imagen: reader.result,
+                votos: 0 
             };
 
             agregarCard(nuevaPropuesta);
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
                 mensaje.innerText = "";
             }, 3000);
-            
+
             form.reset();
         };
 
@@ -68,10 +69,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="card-body">
                     <h5 class="card-title">${propuesta.idea}</h5>
                     <p class="card-text">Propuesta de ${propuesta.nombre}</p>
-                    <button class="btn btn-primary">Apoyar</button>
+                    <p class="votos-label">Votos: <span class="contador-votos">0</span></p>
+                    <button class="btn btn-primary btn-apoyar">Apoyar</button>
                 </div>
             </div>
         `;
+
+        let botonApoyar = item.querySelector(".btn-apoyar");
+        let contadorSpan = item.querySelector(".contador-votos");
+        botonApoyar.addEventListener("click", function () {
+            propuesta.votos++;
+            contadorSpan.innerText = propuesta.votos;
+        });
 
         carouselInner.appendChild(item);
     }
