@@ -19,8 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("archivo:", archivo);
 
         if (nombre === "" || idea === "" || !archivo) {
+
+            mensaje.className = "mensaje mensaje-error";
             mensaje.innerText = "Completa todos los campos";
-            mensaje.style.color = "red";
             return;
         }
 
@@ -36,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             agregarCard(nuevaPropuesta);
 
+            mensaje.className = "mensaje mensaje-exito";
             mensaje.innerText = "Propuesta enviada correctamente";
-            mensaje.style.color = "green";
 
             setTimeout(() => {
                 mensaje.innerText = "";
