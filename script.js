@@ -1,42 +1,102 @@
-let votos = 0
+document.addEventListener("DOMContentLoaded", function () {
 
-const boton = document.getElementById("votar")
-const textoVotos = document.getElementById("contador")
+    const form = document.getElementById("formPropuesta");
+    const carouselInner = document.getElementById("carouselInner");
 
-boton.addEventListener("click", function(){
+    mostrarMensajeVacio();
 
-votos = votos + 1
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-textoVotos.innerText = "Votos: " + votos
+        let nombre = document.getElementById("nombre").value.trim();
+        let idea = document.getElementById("idea").value.trim();
+        let archivoInput = document.getElementById("imagen");
+        let archivo = archivoInput ? archivoInput.files[0] : null;
+        let mensaje = document.getElementById("mensaje");
 
-console.log("voto registrado")
+        console.log("nombre:", nombre);
+        console.log("idea:", idea);
+        console.log("archivo:", archivo);
 
-})
+        if (nombre === "" || idea === "" || !archivo) {
+            mensaje.innerText = "Completa todos los campos";
+            mensaje.style.color = "red";
+            return;
+        }
 
+        let reader = new FileReader();
 
-const form = document.getElementById("formPropuesta")
+        reader.onload = function () {
+            let nuevaPropuesta = {
+                nombre: nombre,
+                idea: idea,
+                imagen: reader.result,
+                votos: 0 
+            };
 
-form.addEventListener("submit", function(e){
+            agregarCard(nuevaPropuesta);
 
-let nombre = document.getElementById("nombre").value
-let idea = document.getElementById("idea").value
+            mensaje.innerText = "Propuesta enviada correctamente";
+            mensaje.style.color = "green";
 
-if(nombre = "" || idea == ""){
+            setTimeout(() => {
+                mensaje.innerText = "";
+            }, 3000);
 
-document.getElementById("mensaje").innerText = "Completa todos los campos"
+            form.reset();
+        };
 
-}
+        reader.readAsDataURL(archivo);
+    });
 
-})
+    function agregarCard(propuesta) {
+        
+        let mensajeVacio = carouselInner.querySelector(".mensaje-vacio");
+        if (mensajeVacio) {
+            carouselInner.innerHTML = "";
+        }
 
-let propuestas = []
+        let item = document.createElement("div");
+        item.className = "carousel-item";
 
-function guardarPropuestas(propuesta)
-{
-    propuestas.Push(propuesta)
-}
+        if (carouselInner.children.length === 0) {
+            item.classList.add("active");
+        }
 
-function listaPropuestas()
-{
-    return propuestas;
-}
+        item.innerHTML = `
+            <div class="card mx-auto" style="width: 24rem;">
+                <img src="${propuesta.imagen}" class="card-img-top" alt="imagen propuesta">
+                <div class="card-body">
+                    <h5 class="card-title">${propuesta.idea}</h5>
+                    <p class="card-text">Propuesta de ${propuesta.nombre}</p>
+                    <p class="votos-label">Votos: <span class="contador-votos">0</span></p>
+                    <button class="btn btn-primary btn-apoyar">Apoyar</button>
+                </div>
+            </div>
+        `;
+
+        let botonApoyar = item.querySelector(".btn-apoyar");
+        let contadorSpan = item.querySelector(".contador-votos");
+        botonApoyar.addEventListener("click", function () {
+            propuesta.votos++;
+            contadorSpan.innerText = propuesta.votos;
+        });
+
+        carouselInner.appendChild(item);
+    }
+
+    function mostrarMensajeVacio() {
+        carouselInner.innerHTML = `
+            <div class="carousel-item active">
+                <div class="mensaje-vacio d-flex justify-content-center align-items-center" style="height: 350px;">
+                    <div class="text-center">
+                        <h5>Todavía no hay propuestas</h5>
+                        <p>¡Sé el primero en enviar una! 🎉</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+});
+
