@@ -11,47 +11,16 @@
         <h2>Ideas Último Año</h2>
         <nav>
             <a href="#">Inicio</a>
-            <a href="#">Propuestas</a>  
+            <a href="#">Propuestas</a>
             <a href="#">Contacto</a>
         </nav>
     </header>
     <main>
-        <section class="propuestas">
         <h1>Propuestas para el último año</h1>
 
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/img.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Propuesta 1</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/img.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Propuesta 2</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/img.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Propuesta 3</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="carousel-inner" id="carouselInner"></div>
+
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
@@ -60,29 +29,22 @@
                 <span class="carousel-control-next-icon"></span>
             </button>
         </div>
+        
+        <p id = "mensaje"></p>
 
-        <section class="hero">
-
-            <p>Votá ideas para hacer este último año inolvidable.</p>
-            <p id = "propuestas" value = "propuestas"></p>
-            <button id="votar">Apoyar una idea</button>
-            <p id="contador">Votos: 0</p>
-            
-        </section>
-
-        <section class="propuesta">
-            <h2>Enviar una propuesta</h2>
-            <form id="formPropuesta">
-                <label>Tu nombre</label>
-                <input type="text" id="nombre">
-                <br>
-                <label>Tu propuesta</label>
-                <input type="text" id="idea">
-                <br>
-                <button>Enviar propuesta</button>
-                <p id="mensaje"></p>
-            </form>
-        </section>
+        <form id="formPropuesta">
+            <label>Tu nombre</label>
+            <input type="text" id="nombre">
+            <br>
+            <label>Tu propuesta</label>
+            <input type="text" id="idea">
+            <br>
+            <label>Imagen</label>
+            <input type="file" id="imagen" accept="image/*">
+            <br>
+            <button type="submit" class="btn btn-success mt-2">Enviar propuesta</button>
+            <p id="mensaje"></p>
+        </form>
     </main>
 
     <footer>
